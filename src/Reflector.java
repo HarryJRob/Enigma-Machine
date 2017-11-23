@@ -15,7 +15,7 @@ public class Reflector extends Rotor {
 
 	@Override
 	public int substitute(int inputInt) {
-		
+			
 		if(inputInt >= 0 && inputInt < ROTORSIZE)
 			return mapping[inputInt];
 		
