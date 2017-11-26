@@ -2,9 +2,13 @@ public class BasicRotor extends Rotor {
 
 	int[] inverseMapping;
 	
+	public BasicRotor(String type) {
+		initialise(type);
+	}
+	
 	@Override
-	public void initialise(String inputStr) {
-		switch(inputStr) {
+	public void initialise(String type) {
+		switch(type) {
 		
 		case "I":
 			mapping = new int[] { 4, 10, 12, 5, 11, 6, 3, 16, 21, 25, 13, 19, 14, 22, 24, 7, 23, 20, 18, 15, 0, 8, 1, 17, 2, 9 };

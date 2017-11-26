@@ -5,14 +5,14 @@ public class EnigmaMachine {
 	private Reflector reflector;
 	private BasicRotor[] rotorArray = new BasicRotor[3];
 	
-	private final char[] charMapping = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+	private final char[] charMapping = "abcdefghijklmnopqrstuvwxyz".toUpperCase().toCharArray();
 	
 	public EnigmaMachine() {
 		plugboard = new Plugboard();
 	}
 	
 	public char encodeLetter(char inputChar) throws ArrayIndexOutOfBoundsException {
-		inputChar = plugboard.substitute(Character.toLowerCase(inputChar));
+		inputChar = plugboard.substitute(Character.toUpperCase(inputChar));
 		
 		int charValue = -1;
 		
@@ -39,35 +39,71 @@ public class EnigmaMachine {
 	}
 
 	public void start() {
-		BasicRotor rotor1 = new BasicRotor();
-		BasicRotor rotor2 = new BasicRotor();
-		BasicRotor rotor3 = new BasicRotor();
-		Reflector reflector =  new Reflector();
+		BasicRotor rotor1 = new BasicRotor("I");
+		BasicRotor rotor2 = new BasicRotor("II");
+		BasicRotor rotor3 = new BasicRotor("III");
+		reflector =  new Reflector();
 		String inputString;
 		
 		System.out.println("Test 1\n");
+		
 		inputString = "GFWIQH";
 		
 		System.out.println("Input String: " + inputString);
 		
-		addPlug('a', 'm');
-		addPlug('g', 'l');
-		addPlug('e', 't');
+		addPlug('A', 'M');
+		addPlug('G', 'L');
+		addPlug('E', 'T');
 		
-		rotor1.initialise("I");
-		rotor2.initialise("II");
-		rotor3.initialise("III");
 		reflector.initialise("ReflectorI");
-		
-		rotor1.setPosition(6);
-		rotor2.setPosition(12);
-		rotor3.setPosition(5);
 		
 		addRotor(rotor1,1);
 		addRotor(rotor2,2);
 		addRotor(rotor3,3);
+		
 		addReflector(reflector);
 		
+		setPosition(1,6);
+		setPosition(2,12);
+		setPosition(3,5);
+		
+		System.out.print("Output String: ");
+		for(int i = 0; i < inputString.length(); i++) {
+			System.out.print(encodeLetter(inputString.charAt(i)));
+		}
+		
+		System.out.println();
+		
+		plugboard.clear();
+		
+		System.out.println("\nTest 2\n");
+		
+		inputString = "GACIG";
+		
+		System.out.println("Input String: " + inputString);
+		
+		addPlug('B', 'C');
+		addPlug('R', 'I');
+		addPlug('S', 'M');
+		addPlug('A', 'F');
+		
+		rotor1 = new BasicRotor("IV");
+		rotor2 = new BasicRotor("V");
+		rotor3 = new BasicRotor("II");
+		
+		reflector.initialise("ReflectorII");
+		
+		addRotor(rotor1,1);
+		addRotor(rotor2,2);
+		addRotor(rotor3,3);
+		
+		addReflector(reflector);
+		
+		setPosition(1,23);
+		setPosition(2,4);
+		setPosition(3,9);
+		
+		System.out.print("Output String: ");
 		for(int i = 0; i < inputString.length(); i++) {
 			System.out.print(encodeLetter(inputString.charAt(i)));
 		}
