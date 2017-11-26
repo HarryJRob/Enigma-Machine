@@ -6,6 +6,10 @@ public class Main {
 		
 		myEM.start();
 
+		System.out.println("\nEnigma File Tests: \n");
+		
+		EnigmaFile.encodeFile("C:\\Users\\Harry\\git\\Enigma-Machine\\TestEncode.txt", "C:\\Users\\Harry\\git\\Enigma-Machine\\TestEncodeOut.txt");
+		
 	}
 
 }

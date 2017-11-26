@@ -17,7 +17,7 @@ public class EnigmaMachine {
 		int charValue = -1;
 		
 		for(int i = 0; i < 26; i++) {
-			if(charMapping[i] ==  inputChar) {
+			if(charMapping[i] == inputChar) {
 				charValue = i;
 				break;
 			}
@@ -107,6 +107,8 @@ public class EnigmaMachine {
 		for(int i = 0; i < inputString.length(); i++) {
 			System.out.print(encodeLetter(inputString.charAt(i)));
 		}
+		
+		System.out.println();
 	}
 	
 	public void addPlug(char end1, char end2) {
@@ -121,21 +123,17 @@ public class EnigmaMachine {
 		rotorArray[slot-1] = rotor;
 	}
 	
-	
 	public BasicRotor getRotor(int slot) {
 		return rotorArray[slot-1];
 	}
-	
 	
 	public void addReflector(Reflector reflector) {
 		this.reflector = reflector;
 	}
 	
-	
 	public Reflector getReflector() {
 		return reflector;
 	}
-	
 	
 	public void setPosition(int slot, int position) throws ArrayIndexOutOfBoundsException {
 		rotorArray[slot-1].setPosition(position);
