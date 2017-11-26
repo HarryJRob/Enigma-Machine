@@ -1,6 +1,6 @@
 public class BasicRotor extends Rotor {
 
-	int[] inverseMapping;
+	protected int[] inverseMapping;
 	
 	public BasicRotor(String type) {
 		initialise(type);

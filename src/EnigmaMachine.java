@@ -109,6 +109,37 @@ public class EnigmaMachine {
 		}
 		
 		System.out.println();
+		
+		plugboard.clear();
+		
+		System.out.println("\nTest 3\n");
+		
+		inputString = "OJVAYFGUOFIVOTAYRNIWJYQWMXUEJGXYGIFT";
+		
+		System.out.println("Input String: " + inputString);
+		
+		addPlug('Q', 'F');
+		
+		TurnoverRotor turnRotor3 = new TurnoverRotor("III", null);
+		TurnoverRotor turnRotor2 = new TurnoverRotor("II",turnRotor3);
+		TurnoverRotor turnRotor1 = new TurnoverRotor("I",turnRotor2);
+		
+		addRotor(turnRotor1,1);
+		addRotor(turnRotor2,2);
+		addRotor(turnRotor3,3);
+		
+		reflector.initialise("ReflectorI");
+		
+		setPosition(1,23);
+		setPosition(2,11);
+		setPosition(3,7);
+		
+		System.out.print("Output String: ");
+		for(int i = 0; i < inputString.length(); i++) {
+			System.out.print(encodeLetter(inputString.charAt(i)));
+		}
+		
+		System.out.println();
 	}
 	
 	public void addPlug(char end1, char end2) {
