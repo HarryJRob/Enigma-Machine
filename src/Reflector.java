@@ -1,5 +1,9 @@
 public class Reflector extends Rotor {
 	
+	public Reflector(String inputStr) {
+		this.initialise(inputStr);
+	}
+	
 	@Override
 	public void initialise(String inputStr) {
 		

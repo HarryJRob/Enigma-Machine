@@ -43,8 +43,8 @@ public abstract class EnigmaFile {
 			EM.addRotor(new BasicRotor("II"), 2);
 			EM.addRotor(new BasicRotor("III"), 3);
 			
-			Reflector reflector = new Reflector();
-			reflector.initialise("ReflectorI");
+			Reflector reflector = new Reflector("ReflectorI");
+
 			EM.addReflector(reflector);
 			
 			for(int i = 0; i < fileStr.length(); i++) {

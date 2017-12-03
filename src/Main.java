@@ -10,6 +10,11 @@ public class Main {
 		
 		EnigmaFile.encodeFile("TestEncode.txt", "TestEncodeOut.txt");
 		
+		System.out.println("\nBombe Tests\n");
+		
+		Bombe.test1();
+		Bombe.test2();
+		Bombe.test3();
 	}
 
 }

@@ -5,7 +5,7 @@ public class EnigmaMachine {
 	private Reflector reflector;
 	private BasicRotor[] rotorArray = new BasicRotor[3];
 	
-	private final char[] charMapping = "abcdefghijklmnopqrstuvwxyz".toUpperCase().toCharArray();
+	private final char[] charMapping = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 	
 	public EnigmaMachine() {
 		plugboard = new Plugboard();
@@ -42,7 +42,7 @@ public class EnigmaMachine {
 		BasicRotor rotor1 = new BasicRotor("I");
 		BasicRotor rotor2 = new BasicRotor("II");
 		BasicRotor rotor3 = new BasicRotor("III");
-		reflector =  new Reflector();
+		reflector =  new Reflector("ReflectorI");
 		String inputString;
 		
 		System.out.println("Test 1\n");
@@ -54,8 +54,6 @@ public class EnigmaMachine {
 		addPlug('A', 'M');
 		addPlug('G', 'L');
 		addPlug('E', 'T');
-		
-		reflector.initialise("ReflectorI");
 		
 		addRotor(rotor1,1);
 		addRotor(rotor2,2);
