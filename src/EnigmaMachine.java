@@ -167,4 +167,12 @@ public class EnigmaMachine {
 	public void setPosition(int slot, int position) throws ArrayIndexOutOfBoundsException {
 		rotorArray[slot-1].setPosition(position);
 	}
+	
+	public boolean isComplete() {
+		if(rotorArray[0] != null && rotorArray[1] != null && rotorArray[1] != null && reflector != null && plugboard != null) {
+			return true;
+		}
+		
+		return false;
+	}
 }
