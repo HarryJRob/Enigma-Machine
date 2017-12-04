@@ -1,9 +1,13 @@
+//Defines all behaviour for all types of reflector.
+//Inherits from Rotor
 public class Reflector extends Rotor {
 	
+	//A constructor was never mentioned for this class however it makes sense that it should have one as BasicRotor does.
 	public Reflector(String inputStr) {
 		this.initialise(inputStr);
 	}
 	
+	//Defines the abstract method in the super class for all Reflector types
 	@Override
 	public void initialise(String inputStr) {
 		
@@ -17,6 +21,7 @@ public class Reflector extends Rotor {
 		
 	}
 
+	//Defines the abstract method in the super class to substitute a value into mapping
 	@Override
 	public int substitute(int inputInt) {
 			

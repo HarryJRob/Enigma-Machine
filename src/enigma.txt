@@ -1,0 +1,12 @@
+Programming 1 Course Work
+
+All tests will be run before the extension code is run
+
+Attempted Parts:
+1,2,3,4,5,6,7,8
+
+Extensions:
+Added a command line interface with the user allowing for:
+	The customisation of a Enigma Machine to be used
+	The encryption of files
+	The encryption of input text

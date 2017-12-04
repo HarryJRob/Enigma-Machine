@@ -1,14 +1,20 @@
-
+//Provides extra logic on top of BasicRotor.
+//Inherits from BasicRotor
 public class TurnoverRotor extends BasicRotor {
 
+	//The position at which the next rotor will be rotated
 	private int turnoverPosition;
+	//The reference to the next rotor
 	private BasicRotor nextRotor;
 	
+	//Constructor
 	public TurnoverRotor(String type, BasicRotor rotor) {
 		super(type);
 		nextRotor = rotor;
 	}
 
+	//Overrides the initialise method. 
+	//Calls the superclass method and then sets the turnoverPosition depending on the type of rotor
 	@Override
 	public void initialise(String type) {
 		super.initialise(type);
@@ -31,14 +37,10 @@ public class TurnoverRotor extends BasicRotor {
 			turnoverPosition = 7;
 			break;
 		}
-		
-		inverseMapping =  new int[ROTORSIZE];
-		
-		for(int i = 0; i < ROTORSIZE; i++) {
-			inverseMapping[mapping[i]] = i;
-		}
 	}
 	
+	//Provides extra logic to the rotate method.
+	//If the position is equal to the turnover position and there is another rotor to rotate then it will rotate it.
 	@Override
 	public void rotate() {
 		position += 1;

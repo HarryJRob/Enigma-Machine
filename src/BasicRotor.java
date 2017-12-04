@@ -1,11 +1,15 @@
+//Defines all behaviour for Basic Rotors
+//Inherits from Rotor
 public class BasicRotor extends Rotor {
 
 	protected int[] inverseMapping;
-	
+
+	//Constructor to initialise the rotor
 	public BasicRotor(String type) {
 		initialise(type);
 	}
 	
+	//Defines the abstract method in the super class for all BasicRotor types also constructs a inverse mapping
 	@Override
 	public void initialise(String type) {
 		switch(type) {
@@ -34,6 +38,7 @@ public class BasicRotor extends Rotor {
 		}
 	}
 
+	//Defines the abstract method in the super class to substitute a value into mapping taking into account the position of the rotor
 	@Override
 	public int substitute(int inputInt) {
 		inputInt -= position;
@@ -53,6 +58,7 @@ public class BasicRotor extends Rotor {
 		return inputInt;
 	}
 	
+	//A method which does the same a substitute but uses inverseMapping instead
 	public int substituteBack(int inputInt) {
 		inputInt -= position;
 		
@@ -71,6 +77,7 @@ public class BasicRotor extends Rotor {
 		return inputInt;
 	}
 	
+	//Increments the position by 1. If it becomes 26 then it gets set back to 0
 	public void rotate() {
 		position += 1;
 		position %= ROTORSIZE;

@@ -2,7 +2,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+//A class containing the main method
+public abstract class Main {
 
 	public static void main(String[] args) {
 		//Create a new Enigma Machine
@@ -14,7 +15,7 @@ public class Main {
 		System.out.println("\nEnigma File Tests: \n");
 		
 		//Run a test to confirm that Enigma File is working
-		EnigmaFile.encodeFile("TestEncode.txt", "TestEncodeOut.txt");
+		EnigmaFile.encodeFile("src\\TestEncode.txt", "src\\TestEncodeOut.txt");
 		
 		System.out.println("\nBombe Tests\n");
 		
@@ -35,6 +36,7 @@ public class Main {
 		
 		while(!willExit) {
 		
+			//While you haven't asked to exit attempt to read input
 			try {
 				curInput = inputReader.readLine();
 			} catch (IOException e) {
@@ -43,6 +45,7 @@ public class Main {
 			
 			//If the first character is a ! then this is a command
 			if(curInput.charAt(0) == '!') {
+				//Uses regular expressions to determine which commands are which
 				
 				if(curInput.matches("!help")) {
 					//Displays all commands
@@ -90,6 +93,7 @@ public class Main {
 					
 					EnigmaFile.encodeFile(stringParts[1], stringParts[2], myEM);
 				} else if (curInput.matches("!exit")) {
+					//Set the exit variable to true
 					willExit = true;
 					
 				}
@@ -101,8 +105,9 @@ public class Main {
 				for(char curChar : curInput.toCharArray()) {
 					try {
 						output += myEM.encodeLetter(curChar);
-					} catch (ArrayIndexOutOfBoundsException e) {
-						output += "?";
+					} catch (Exception e) {
+						//If a character in the input isn't recognised then instead of throwing a error just convert it to a ?
+						output += '?';
 					}
 				}
 				
